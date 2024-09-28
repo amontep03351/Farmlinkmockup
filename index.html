@@ -6,21 +6,78 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <title>Farm Link</title>
+    <style>
+        .header-bg {
+            background-image: url('https://via.placeholder.com/1200x400'); /* เปลี่ยน URL เป็นภาพพื้นหลังที่ต้องการ */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-slide {
+            height: 300px;
+        }
+
+        .banner-img {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Header -->
-    <header class="bg-green-500 text-white p-4">
-        <h1 class="text-2xl font-bold">Farm Link</h1>
-        <p class="text-sm">เชื่อมโยงเกษตรกรและผู้ปลูกผลผลิตทั่วโลก</p>
+    <header class="header-bg text-white p-8">
+        <h1 class="text-3xl font-bold">Farm Link</h1>
+        <p class="text-lg">เชื่อมโยงเกษตรกรและผู้ปลูกผลผลิตทั่วโลก</p>
     </header>
 
     <!-- Main Content -->
     <main class="p-4">
         <!-- Banner Slide -->
         <section class="mb-6">
-            <div class="bg-green-200 h-32 rounded-lg flex items-center justify-center">
-                <h2 class="text-xl font-semibold">ยินดีต้อนรับสู่ Farm Link</h2>
+            <div class="relative">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="banner-slide" style="background-image: url('https://via.placeholder.com/1200x300?text=Slide+1');">
+                                <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+                                    <h2 class="text-2xl font-semibold text-white">ฟาร์มผักออแกนิก</h2>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-5 left-5">
+                                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">อ่านเพิ่มเติม</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="banner-slide" style="background-image: url('https://via.placeholder.com/1200x300?text=Slide+2');">
+                                <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+                                    <h2 class="text-2xl font-semibold text-white">ฟาร์มมะม่วง</h2>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-5 left-5">
+                                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">อ่านเพิ่มเติม</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="banner-slide" style="background-image: url('https://via.placeholder.com/1200x300?text=Slide+3');">
+                                <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+                                    <h2 class="text-2xl font-semibold text-white">ฟาร์มสตรอว์เบอร์รี</h2>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-5 left-5">
+                                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">อ่านเพิ่มเติม</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -90,5 +147,8 @@
         <p>&copy; 2024 Farm Link. All rights reserved.</p>
     </footer>
 
+    <!-- Script สำหรับ Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
