@@ -6,70 +6,67 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Farm Link</title>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
+
     <!-- Header -->
-    <header class="bg-green-700 text-white p-5 shadow-md">
-        <h1 class="text-2xl font-bold text-center">Farm Link</h1>
+    <header class="bg-green-500 text-white p-4">
+        <h1 class="text-2xl font-bold">Farm Link</h1>
     </header>
 
     <!-- Main Content -->
-    <main class="p-5">
+    <main class="p-4">
         <!-- Banner Slide -->
-        <section class="mb-5">
-            <div class="bg-green-300 h-48 flex items-center justify-center rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold">ต้อนรับสู่ Farm Link</h2>
+        <section class="mb-6">
+            <div class="bg-green-200 h-32 rounded-lg flex items-center justify-center">
+                <h2 class="text-xl font-semibold">Welcome to Farm Link</h2>
             </div>
-        </section>
-
-        <!-- Filter Section -->
-        <section class="mb-5">
-            <form class="flex flex-col md:flex-row justify-between mb-4">
-                <select class="border rounded-lg p-2 mb-2 md:mb-0" id="season">
-                    <option value="">เลือกฤดู</option>
-                    <option value="summer">ฤดูร้อน</option>
-                    <option value="rainy">ฤดูฝน</option>
-                    <option value="winter">ฤดูหนาว</option>
-                </select>
-                <select class="border rounded-lg p-2 mb-2 md:mb-0" id="crop">
-                    <option value="">เลือกผัก/ผลไม้</option>
-                    <option value="mango">มะม่วง</option>
-                    <option value="strawberry">สตรอว์เบอร์รี</option>
-                    <option value="coriander">ผักชี</option>
-                </select>
-                <button type="submit" class="bg-green-600 text-white rounded-lg p-2">ค้นหา</button>
-            </form>
         </section>
 
         <!-- Cards Section -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div class="bg-white rounded-lg shadow-md p-5">
                 <h3 class="font-semibold text-lg">ฟาร์มผักออแกนิก</h3>
-                <p>ฤดู: ฤดูฝน</p>
-                <p>ผลผลิต: ผักชี, ข้าว</p>
+                <p class="text-gray-600">ประเภท: ผักสด</p>
+                <p class="mt-2"><strong>พื้นที่:</strong> 1 ไร่</p>
+                <p class="mt-1"><strong>เรทราคาบริการ:</strong> 500 บาท/ไร่</p>
+                <p class="mt-3">บริการ: เก็บเกี่ยว, แพ็คสินค้า</p>
             </div>
             <div class="bg-white rounded-lg shadow-md p-5">
                 <h3 class="font-semibold text-lg">ฟาร์มมะม่วง</h3>
-                <p>ฤดู: ฤดูร้อน</p>
-                <p>ผลผลิต: มะม่วง</p>
+                <p class="text-gray-600">ประเภท: ผลไม้</p>
+                <p class="mt-2"><strong>พื้นที่:</strong> 2 ไร่</p>
+                <p class="mt-1"><strong>เรทราคาบริการ:</strong> 700 บาท/ไร่</p>
+                <p class="mt-3">บริการ: ตัดผล, ส่งตรงถึงลูกค้า</p>
             </div>
             <div class="bg-white rounded-lg shadow-md p-5">
                 <h3 class="font-semibold text-lg">ฟาร์มสตรอว์เบอร์รี</h3>
-                <p>ฤดู: ฤดูหนาว</p>
-                <p>ผลผลิต: สตรอว์เบอร์รี</p>
+                <p class="text-gray-600">ประเภท: ผลไม้</p>
+                <p class="mt-2"><strong>พื้นที่:</strong> 0.5 ไร่</p>
+                <p class="mt-1"><strong>เรทราคาบริการ:</strong> 600 บาท/ไร่</p>
+                <p class="mt-3">บริการ: เก็บเกี่ยว, แปรรูป</p>
             </div>
             <!-- เพิ่มฟาร์มเพิ่มเติมได้ -->
         </section>
-
-        <!-- Content Section -->
-        <section class="mt-5">
-            <h3 class="font-semibold text-xl">ข้อมูลฤดูกาล</h3>
-            <p>ข้อมูลเกี่ยวกับผักและผลไม้ที่ออกผลในแต่ละฤดู.</p>
+        
+        <!-- Filter Section -->
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold mb-4">ค้นหาผลผลิตตามฤดูกาล</h2>
+            <div class="bg-white rounded-lg shadow-md p-5">
+                <label for="season" class="block mb-2">เลือกฤดูกาล:</label>
+                <select id="season" class="border rounded p-2 w-full">
+                    <option value="summer">ฤดูร้อน</option>
+                    <option value="rainy">ฤดูฝน</option>
+                    <option value="winter">ฤดูหนาว</option>
+                </select>
+                <button class="bg-green-500 text-white mt-4 px-4 py-2 rounded">ค้นหา</button>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-5 text-center">
-        <p>© 2024 Farm Link. All rights reserved.</p>
+    <footer class="bg-gray-200 text-center p-4 mt-6">
+        <p>&copy; 2024 Farm Link. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
