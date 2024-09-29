@@ -7,16 +7,15 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body {
-            margin: 0; /* ไม่มีระยะห่าง */
+            margin: 0;
         }
         .banner {
             background-image: url('banner-image.jpg');
             background-size: cover;
             background-position: center;
+            height: 60vh; /* ขนาดความสูงของ banner */
             position: relative;
-            height: 64vh; /* ขนาดความสูงของ banner */
-            margin: 0; /* ไม่มีระยะห่าง */
-            padding: 0; /* ไม่มีระยะห่าง */
+            margin: 0;
         }
         .overlay {
             position: absolute;
@@ -24,12 +23,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* สีดำที่โปร่งใส */
-            backdrop-filter: blur(5px); /* ความเบลอ */
-        }
-        .content {
-            position: relative;
-            z-index: 10;
+            background: rgba(0, 0, 0, 0.4); /* สีดำที่โปร่งใส */
         }
     </style>
 </head>
@@ -44,89 +38,79 @@
     </header>
 
     <!-- Main Content -->
-    <main class="p-0"> <!-- ไม่มี padding -->
+    <main class="p-4">
         <!-- Banner -->
         <div class="banner">
             <div class="overlay"></div>
-            <div class="content text-center text-white p-8">
-                <h2 class="text-3xl font-bold">Welcome to Farm Link</h2>
-                <p class="mt-4 text-lg">เราคือแพลตฟอร์มที่เชื่อมต่อเกษตรกรและลูกค้าโดยตรง เพื่อให้คุณได้ผลผลิตสดใหม่จากฟาร์มถึงมือคุณ</p>
+            <div class="text-center text-white p-8 relative z-10">
+                <h2 class="text-3xl font-bold">ยินดีต้อนรับสู่ Farm Link</h2>
+                <p class="mt-4 text-lg">แพลตฟอร์มที่เชื่อมต่อเกษตรกรและลูกค้าโดยตรง เพื่อผลผลิตสดใหม่จากฟาร์มถึงมือคุณ</p>
             </div>
         </div>
 
         <!-- Card ประเภทผู้ใช้ -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div class="grid grid-cols-1 gap-6 mt-8">
             <!-- Farmer Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="flex items-center">
-                    <img src="farmer-icon.png" alt="Farmer" class="w-16 h-16 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold">เกษตรกร</h3>
-                        <p class="text-gray-600">สามารถปลูกผลผลิตและขายได้ตรงกับลูกค้า</p>
-                        <div class="flex mt-4">
-                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
-                        </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+                <img src="farmer-icon.png" alt="Farmer" class="w-16 h-16 rounded-full mr-4">
+                <div>
+                    <h3 class="text-xl font-bold">เกษตรกร</h3>
+                    <p class="text-gray-600">ปลูกผลผลิตและขายได้ตรงกับลูกค้า</p>
+                    <div class="flex mt-2">
+                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
                     </div>
                 </div>
             </div>
 
             <!-- Restaurant Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="flex items-center">
-                    <img src="restaurant-icon.png" alt="Restaurant" class="w-16 h-16 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold">ร้านอาหาร</h3>
-                        <p class="text-gray-600">เชื่อมต่อกับเกษตรกรเพื่อสั่งซื้อผลผลิตสดใหม่</p>
-                        <div class="flex mt-4">
-                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
-                        </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+                <img src="restaurant-icon.png" alt="Restaurant" class="w-16 h-16 rounded-full mr-4">
+                <div>
+                    <h3 class="text-xl font-bold">ร้านอาหาร</h3>
+                    <p class="text-gray-600">เชื่อมต่อกับเกษตรกรเพื่อสั่งซื้อผลผลิตสดใหม่</p>
+                    <div class="flex mt-2">
+                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
                     </div>
                 </div>
             </div>
 
             <!-- Company/Organization Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="flex items-center">
-                    <img src="company-icon.png" alt="Company" class="w-16 h-16 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold">บริษัท/องค์กร</h3>
-                        <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
-                        <div class="flex mt-4">
-                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
-                        </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+                <img src="company-icon.png" alt="Company" class="w-16 h-16 rounded-full mr-4">
+                <div>
+                    <h3 class="text-xl font-bold">บริษัท/องค์กร</h3>
+                    <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
+                    <div class="flex mt-2">
+                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
                     </div>
                 </div>
             </div>
 
             <!-- Inspector Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="flex items-center">
-                    <img src="inspector-icon.png" alt="Inspector" class="w-16 h-16 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold">ผู้ตรวจสอบ</h3>
-                        <p class="text-gray-600">ตรวจสอบการปลูกและรับผลตอบแทน</p>
-                        <div class="flex mt-4">
-                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
-                        </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+                <img src="inspector-icon.png" alt="Inspector" class="w-16 h-16 rounded-full mr-4">
+                <div>
+                    <h3 class="text-xl font-bold">ผู้ตรวจสอบ</h3>
+                    <p class="text-gray-600">ตรวจสอบการปลูกและรับผลตอบแทน</p>
+                    <div class="flex mt-2">
+                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
                     </div>
                 </div>
             </div>
 
             <!-- General User Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="flex items-center">
-                    <img src="user-icon.png" alt="User" class="w-16 h-16 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold">ผู้ใช้ทั่วไป</h3>
-                        <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
-                        <div class="flex mt-4">
-                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
-                        </div>
+            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
+                <img src="user-icon.png" alt="User" class="w-16 h-16 rounded-full mr-4">
+                <div>
+                    <h3 class="text-xl font-bold">ผู้ใช้ทั่วไป</h3>
+                    <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
+                    <div class="flex mt-2">
+                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
                     </div>
                 </div>
             </div>
