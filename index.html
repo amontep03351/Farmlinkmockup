@@ -122,6 +122,24 @@
         .carousel-button.right {
             right: 10px;
         }
+
+        .region-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #38a169;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .region-circle:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -162,6 +180,27 @@
             <button class="carousel-button right" onclick="moveSlide(1)">❯</button>
         </div>
 
+        <!-- Region Carousel -->
+        <h2 class="text-2xl font-bold text-center my-4">Choose Your Region</h2>
+        <div class="carousel">
+            <button class="carousel-button left" onclick="moveRegionSlide(-1)">❮</button>
+            <div class="carousel-inner" id="region-carousel-inner">
+                <div class="carousel-item">
+                    <div class="region-circle">North</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="region-circle">South</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="region-circle">East</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="region-circle">West</div>
+                </div>
+            </div>
+            <button class="carousel-button right" onclick="moveRegionSlide(1)">❯</button>
+        </div>
+
         <!-- Farmer Cards -->
         <h2 class="text-2xl font-bold text-center my-4">Meet Our Farmers</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -196,9 +235,10 @@
 
     <script>
         let currentIndex = 0;
+        let regionIndex = 0;
 
         function moveSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-item');
+            const slides = document.querySelectorAll('.carousel-item.slide');
             const totalSlides = slides.length;
 
             currentIndex += direction;
@@ -211,6 +251,22 @@
 
             const offset = -currentIndex * 100;
             document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+
+        function moveRegionSlide(direction) {
+            const regionSlides = document.querySelectorAll('#region-carousel-inner .carousel-item');
+            const totalRegionSlides = regionSlides.length;
+
+            regionIndex += direction;
+
+            if (regionIndex < 0) {
+                regionIndex = totalRegionSlides - 1;
+            } else if (regionIndex >= totalRegionSlides) {
+                regionIndex = 0;
+            }
+
+            const offset = -regionIndex * 100;
+            document.querySelector('#region-carousel-inner').style.transform = `translateX(${offset}%)`;
         }
     </script>
 </body>
