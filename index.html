@@ -1,196 +1,110 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Link - แพลตฟอร์มเชื่อมต่อเกษตรกร</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <title>Farm Link</title>
-    <style>
-        .header-bg {
-            background-image: url('https://via.placeholder.com/1200x400/4CAF50/FFFFFF/?text=Farm+Link'); /* เปลี่ยน URL เป็นภาพพื้นหลังที่ต้องการ */
-            background-size: cover;
-            background-position: center;
-        }
-
-        .banner-card {
-            background-image: url('https://via.placeholder.com/1200x300?text=Farm+Banner'); /* เปลี่ยน URL เป็นภาพของ Card */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* เพิ่ม blur effect */
-        .blur-effect {
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        main {
-            overflow-y: auto;
-            height: calc(100vh - 200px); /* ความสูงของ header และ footer */
-        }
-
-        .rating {
-            color: gold;
-        }
-    </style>
 </head>
-
-<body class="bg-gray-100 flex flex-col">
-
+<body class="bg-gray-100">
     <!-- Header -->
-    <header class="header-bg text-white p-8 flex flex-col justify-center items-center">
-        <h1 class="text-4xl font-bold">Farm Link</h1>
-        <p class="text-xl mt-2">เชื่อมโยงเกษตรกรและผู้ปลูกผลผลิตทั่วโลก</p>
+    <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Farm Link</h1>
+        <div>
+            <a href="#" class="mr-4">Login</a>
+            <a href="#" class="bg-white text-green-600 px-4 py-2 rounded">Register</a>
+        </div>
     </header>
 
     <!-- Main Content -->
-    <main class="p-4 flex-grow">
-        <!-- Action Buttons -->
-        <section class="flex justify-center mb-6">
-            <a href="/login" class="bg-green-500 text-white px-4 py-2 rounded-lg mr-4 hover:bg-green-600 transition">เข้าสู่ระบบ</a>
-            <a href="/register" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">สมัครสมาชิก</a>
-        </section>
+    <main class="p-8">
+        <!-- Banner -->
+        <div class="bg-cover bg-center h-64" style="background-image: url('banner-image.jpg');">
+            <h2 class="text-3xl text-white p-4">Welcome to Farm Link</h2>
+        </div>
 
-        <!-- Banner Card -->
-        <section class="mb-6">
-            <div class="banner-card rounded-lg shadow-lg p-6 text-white flex items-center">
-                <div class="flex-1">
-                    <h2 class="text-3xl font-semibold">ฟาร์มผักออแกนิก</h2>
-                    <p class="mt-2">เลือกผักสดใหม่จากฟาร์มของเรา</p>
-                    <a href="/details" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Farmers Section -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div class="bg-white rounded-lg shadow-md p-5 flex items-start transition-transform transform hover:scale-105">
-                <div class="flex-shrink-0">
-                    <img class="w-16 h-16 rounded-full border-2 border-green-500" src="https://via.placeholder.com/64" alt="Profile Picture">
-                </div>
-                <div class="ml-4">
-                    <h3 class="font-semibold text-lg text-green-600">ฟาร์มมะม่วง</h3>
-                    <p class="text-gray-600">ประเภท: ผลไม้</p>
-                    <p class="mt-2"><strong>พื้นที่:</strong> 2 ไร่</p>
-                    <p class="mt-1"><strong>เรทราคาบริการ:</strong> 700 บาท/ไร่</p>
-                    <p class="mt-3">บริการ: ตัดผล, ส่งตรงถึงลูกค้า</p>
-                    <div class="flex items-center mt-2">
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star-half-alt"></i></span>
-                        <span class="ml-2 text-gray-500">(4.5)</span>
+        <!-- Card ประเภทผู้ใช้ -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <!-- Farmer Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex items-center">
+                    <img src="farmer-icon.png" alt="Farmer" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">เกษตรกร</h3>
+                        <p class="text-gray-600">สามารถปลูกผลผลิตและขายได้ตรงกับลูกค้า</p>
+                        <div class="flex mt-4">
+                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
+                        </div>
                     </div>
-                    <p class="text-blue-500 mt-2 cursor-pointer hover:underline">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-5 flex items-start transition-transform transform hover:scale-105">
-                <div class="flex-shrink-0">
-                    <img class="w-16 h-16 rounded-full border-2 border-green-500" src="https://via.placeholder.com/64" alt="Profile Picture">
-                </div>
-                <div class="ml-4">
-                    <h3 class="font-semibold text-lg text-green-600">ฟาร์มสตรอว์เบอร์รี</h3>
-                    <p class="text-gray-600">ประเภท: ผลไม้</p>
-                    <p class="mt-2"><strong>พื้นที่:</strong> 0.5 ไร่</p>
-                    <p class="mt-1"><strong>เรทราคาบริการ:</strong> 600 บาท/ไร่</p>
-                    <p class="mt-3">บริการ: เก็บเกี่ยว, แปรรูป</p>
-                    <div class="flex items-center mt-2">
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="ml-2 text-gray-500">(5.0)</span>
+            <!-- Restaurant Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex items-center">
+                    <img src="restaurant-icon.png" alt="Restaurant" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">ร้านอาหาร</h3>
+                        <p class="text-gray-600">เชื่อมต่อกับเกษตรกรเพื่อสั่งซื้อผลผลิตสดใหม่</p>
+                        <div class="flex mt-4">
+                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
+                        </div>
                     </div>
-                    <p class="text-blue-500 mt-2 cursor-pointer hover:underline">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-5 flex items-start transition-transform transform hover:scale-105">
-                <div class="flex-shrink-0">
-                    <img class="w-16 h-16 rounded-full border-2 border-green-500" src="https://via.placeholder.com/64" alt="Profile Picture">
-                </div>
-                <div class="ml-4">
-                    <h3 class="font-semibold text-lg text-green-600">ฟาร์มผักสลัด</h3>
-                    <p class="text-gray-600">ประเภท: ผัก</p>
-                    <p class="mt-2"><strong>พื้นที่:</strong> 1 ไร่</p>
-                    <p class="mt-1"><strong>เรทราคาบริการ:</strong> 500 บาท/ไร่</p>
-                    <p class="mt-3">บริการ: ส่งถึงบ้าน</p>
-                    <div class="flex items-center mt-2">
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star-half-alt"></i></span>
-                        <span class="rating"><i class="far fa-star"></i></span>
-                        <span class="ml-2 text-gray-500">(3.5)</span>
+            <!-- Company/Organization Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex items-center">
+                    <img src="company-icon.png" alt="Company" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">บริษัท/องค์กร</h3>
+                        <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
+                        <div class="flex mt-4">
+                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
+                        </div>
                     </div>
-                    <p class="text-blue-500 mt-2 cursor-pointer hover:underline">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-5 flex items-start transition-transform transform hover:scale-105">
-                <div class="flex-shrink-0">
-                    <img class="w-16 h-16 rounded-full border-2 border-green-500" src="https://via.placeholder.com/64" alt="Profile Picture">
-                </div>
-                <div class="ml-4">
-                    <h3 class="font-semibold text-lg text-green-600">ฟาร์มข้าวโพด</h3>
-                    <p class="text-gray-600">ประเภท: ธัญพืช</p>
-                    <p class="mt-2"><strong>พื้นที่:</strong> 3 ไร่</p>
-                    <p class="mt-1"><strong>เรทราคาบริการ:</strong> 700 บาท/ไร่</p>
-                    <p class="mt-3">บริการ: ส่งเก็บเกี่ยวถึงลูกค้า</p>
-                    <div class="flex items-center mt-2">
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="far fa-star"></i></span>
-                        <span class="ml-2 text-gray-500">(4.0)</span>
+            <!-- Inspector Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex items-center">
+                    <img src="inspector-icon.png" alt="Inspector" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">ผู้ตรวจสอบ</h3>
+                        <p class="text-gray-600">ตรวจสอบการปลูกและรับผลตอบแทน</p>
+                        <div class="flex mt-4">
+                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
+                        </div>
                     </div>
-                    <p class="text-blue-500 mt-2 cursor-pointer hover:underline">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-5 flex items-start transition-transform transform hover:scale-105">
-                <div class="flex-shrink-0">
-                    <img class="w-16 h-16 rounded-full border-2 border-green-500" src="https://via.placeholder.com/64" alt="Profile Picture">
-                </div>
-                <div class="ml-4">
-                    <h3 class="font-semibold text-lg text-green-600">ฟาร์มถั่วลิสง</h3>
-                    <p class="text-gray-600">ประเภท: ธัญพืช</p>
-                    <p class="mt-2"><strong>พื้นที่:</strong> 1 ไร่</p>
-                    <p class="mt-1"><strong>เรทราคาบริการ:</strong> 650 บาท/ไร่</p>
-                    <p class="mt-3">บริการ: เก็บเกี่ยว, ส่งให้ลูกค้า</p>
-                    <div class="flex items-center mt-2">
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star"></i></span>
-                        <span class="rating"><i class="fas fa-star-half-alt"></i></span>
-                        <span class="rating"><i class="far fa-star"></i></span>
-                        <span class="ml-2 text-gray-500">(4.0)</span>
+            <!-- General User Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex items-center">
+                    <img src="user-icon.png" alt="User" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">ผู้ใช้ทั่วไป</h3>
+                        <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
+                        <div class="flex mt-4">
+                            <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
+                            <a href="#" class="bg-green-500 text-white px-4 py-2 rounded">เข้าร่วม</a>
+                        </div>
                     </div>
-                    <p class="text-blue-500 mt-2 cursor-pointer hover:underline">อ่านเพิ่มเติม <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
-
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-600 text-white p-4 text-center">
-        <p>© 2024 Farm Link. สงวนลิขสิทธิ์.</p>
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2024 Farm Link. All Rights Reserved.</p>
     </footer>
-
 </body>
-
 </html>
