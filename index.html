@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm Link - แพลตฟอร์มเชื่อมต่อเกษตรกร</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            margin: 0;
+            font-family: 'Arial', sans-serif;
         }
-        .banner {
-            background-image: url('banner-image.jpg');
+        .hero {
+            background: url('banner-image.jpg') no-repeat center center; 
             background-size: cover;
-            background-position: center;
-            height: 60vh; /* ขนาดความสูงของ banner */
+            height: 70vh; 
             position: relative;
-            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
         .overlay {
             position: absolute;
@@ -23,103 +27,94 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* สีดำที่โปร่งใส */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2F855A; /* สีเขียวเข้ม */
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: white;
+        }
+        .card {
+            transition: transform 0.2s;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
     <header class="bg-green-600 text-white p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Farm Link</h1>
-        <div>
-            <a href="#" class="mr-4">Login</a>
-            <a href="#" class="bg-white text-green-600 px-4 py-2 rounded">Register</a>
-        </div>
+        <div class="text-lg font-bold">Farm Link</div>
+        <nav>
+            <a href="#" class="mx-4 text-white hover:underline">Login</a>
+            <a href="#" class="mx-4 text-white hover:underline">Register</a>
+        </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="p-4">
-        <!-- Banner -->
-        <div class="banner">
-            <div class="overlay"></div>
-            <div class="text-center text-white p-8 relative z-10">
-                <h2 class="text-3xl font-bold">ยินดีต้อนรับสู่ Farm Link</h2>
-                <p class="mt-4 text-lg">แพลตฟอร์มที่เชื่อมต่อเกษตรกรและลูกค้าโดยตรง เพื่อผลผลิตสดใหม่จากฟาร์มถึงมือคุณ</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div>
+            <h1>Farm Link</h1>
+            <p>เชื่อมต่อเกษตรกรกับผู้ซื้อโดยตรง</p>
         </div>
+    </section>
 
-        <!-- Card ประเภทผู้ใช้ -->
-        <div class="grid grid-cols-1 gap-6 mt-8">
-            <!-- Farmer Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
-                <img src="farmer-icon.png" alt="Farmer" class="w-16 h-16 rounded-full mr-4">
-                <div>
-                    <h3 class="text-xl font-bold">เกษตรกร</h3>
-                    <p class="text-gray-600">ปลูกผลผลิตและขายได้ตรงกับลูกค้า</p>
-                    <div class="flex mt-2">
-                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <main class="p-5">
+        <h2 class="text-2xl text-green-600 font-bold text-center mb-5">เกษตรกรของเรา</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="card">
+                <i class="fas fa-leaf fa-3x text-green-500"></i>
+                <h3 class="text-xl text-green-600">เกษตรกร 1</h3>
+                <p>พื้นที่: 400 ตารางเมตร</p>
+                <p>เรทราคา: 3 เหรียญต่อวัน</p>
+                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
             </div>
-
-            <!-- Restaurant Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
-                <img src="restaurant-icon.png" alt="Restaurant" class="w-16 h-16 rounded-full mr-4">
-                <div>
-                    <h3 class="text-xl font-bold">ร้านอาหาร</h3>
-                    <p class="text-gray-600">เชื่อมต่อกับเกษตรกรเพื่อสั่งซื้อผลผลิตสดใหม่</p>
-                    <div class="flex mt-2">
-                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
-                    </div>
-                </div>
+            <div class="card">
+                <i class="fas fa-leaf fa-3x text-green-500"></i>
+                <h3 class="text-xl text-green-600">เกษตรกร 2</h3>
+                <p>พื้นที่: 400 ตารางเมตร</p>
+                <p>เรทราคา: 3 เหรียญต่อวัน</p>
+                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
             </div>
-
-            <!-- Company/Organization Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
-                <img src="company-icon.png" alt="Company" class="w-16 h-16 rounded-full mr-4">
-                <div>
-                    <h3 class="text-xl font-bold">บริษัท/องค์กร</h3>
-                    <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
-                    <div class="flex mt-2">
-                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
-                    </div>
-                </div>
+            <div class="card">
+                <i class="fas fa-leaf fa-3x text-green-500"></i>
+                <h3 class="text-xl text-green-600">เกษตรกร 3</h3>
+                <p>พื้นที่: 400 ตารางเมตร</p>
+                <p>เรทราคา: 3 เหรียญต่อวัน</p>
+                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
             </div>
-
-            <!-- Inspector Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
-                <img src="inspector-icon.png" alt="Inspector" class="w-16 h-16 rounded-full mr-4">
-                <div>
-                    <h3 class="text-xl font-bold">ผู้ตรวจสอบ</h3>
-                    <p class="text-gray-600">ตรวจสอบการปลูกและรับผลตอบแทน</p>
-                    <div class="flex mt-2">
-                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
-                    </div>
-                </div>
+            <div class="card">
+                <i class="fas fa-leaf fa-3x text-green-500"></i>
+                <h3 class="text-xl text-green-600">เกษตรกร 4</h3>
+                <p>พื้นที่: 400 ตารางเมตร</p>
+                <p>เรทราคา: 3 เหรียญต่อวัน</p>
+                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
             </div>
-
-            <!-- General User Card -->
-            <div class="bg-white rounded-lg shadow-lg p-4 flex items-center">
-                <img src="user-icon.png" alt="User" class="w-16 h-16 rounded-full mr-4">
-                <div>
-                    <h3 class="text-xl font-bold">ผู้ใช้ทั่วไป</h3>
-                    <p class="text-gray-600">สนับสนุนการเกษตรและสร้างความยั่งยืน</p>
-                    <div class="flex mt-2">
-                        <a href="#" class="text-blue-500 mr-4">อ่านเพิ่มเติม</a>
-                        <a href="#" class="bg-green-500 text-white px-4 py-1 rounded">เข้าร่วม</a>
-                    </div>
-                </div>
+            <div class="card">
+                <i class="fas fa-leaf fa-3x text-green-500"></i>
+                <h3 class="text-xl text-green-600">เกษตรกร 5</h3>
+                <p>พื้นที่: 400 ตารางเมตร</p>
+                <p>เรทราคา: 3 เหรียญต่อวัน</p>
+                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4 text-center">
-        <p>&copy; 2024 Farm Link. All Rights Reserved.</p>
+    <footer class="bg-green-600 text-white p-4 text-center">
+        &copy; 2024 Farm Link. All Rights Reserved.
     </footer>
 </body>
 </html>
