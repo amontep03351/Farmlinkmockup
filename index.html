@@ -3,51 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Link - แพลตฟอร์มเชื่อมต่อเกษตรกร</title>
+    <title>Farm Link - เกษตรกร</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
         }
-        .hero {
-            background: url('banner-image.jpg') no-repeat center center; 
-            background-size: cover;
-            height: 70vh; 
+        .carousel {
             position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel-inner {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            transition: transform 0.5s ease-in-out;
         }
-        .overlay {
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-button {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
         }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2F855A; /* สีเขียวเข้ม */
+        .carousel-button.prev {
+            left: 10px;
         }
-        .hero p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            color: white;
-        }
-        .card {
-            transition: transform 0.2s;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-        .card:hover {
-            transform: translateY(-5px);
+        .carousel-button.next {
+            right: 10px;
         }
     </style>
 </head>
@@ -55,66 +46,113 @@
     <!-- Header -->
     <header class="bg-green-600 text-white p-4 flex justify-between items-center">
         <div class="text-lg font-bold">Farm Link</div>
-        <nav>
-            <a href="#" class="mx-4 text-white hover:underline">Login</a>
-            <a href="#" class="mx-4 text-white hover:underline">Register</a>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="overlay"></div>
-        <div>
-            <h1>Farm Link</h1>
-            <p>เชื่อมต่อเกษตรกรกับผู้ซื้อโดยตรง</p>
+    <!-- Carousel for User Types -->
+    <div class="carousel mt-5">
+        <button class="carousel-button prev" onclick="moveSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-button next" onclick="moveSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-inner" id="carouselInner">
+            <!-- User Type 1 -->
+            <div class="carousel-item bg-white p-5 shadow-lg rounded-lg">
+                <h2 class="text-xl font-bold text-green-600">เกษตรกร</h2>
+                <p>เกษตรกรสามารถลงทะเบียนเพื่อเชื่อมต่อกับลูกค้าโดยตรงและมีโอกาสทำรายได้ทันทีจากผลผลิตที่ปลูก.</p>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Join</a>
+            </div>
+            <!-- User Type 2 -->
+            <div class="carousel-item bg-white p-5 shadow-lg rounded-lg">
+                <h2 class="text-xl font-bold text-green-600">ร้านอาหาร</h2>
+                <p>ร้านอาหารสามารถเลือกซัพพลายเออร์จากฟาร์มได้โดยตรง ทำให้ได้สินค้าที่สดใหม่และมีราคาที่เหมาะสม.</p>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Join</a>
+            </div>
+            <!-- User Type 3 -->
+            <div class="carousel-item bg-white p-5 shadow-lg rounded-lg">
+                <h2 class="text-xl font-bold text-green-600">บริษัท</h2>
+                <p>บริษัทสามารถสั่งซื้อผลิตภัณฑ์จากเกษตรกรได้โดยไม่ผ่านพ่อค้าคนกลาง ช่วยลดต้นทุนและเพิ่มความสะดวก.</p>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Join</a>
+            </div>
+            <!-- User Type 4 -->
+            <div class="carousel-item bg-white p-5 shadow-lg rounded-lg">
+                <h2 class="text-xl font-bold text-green-600">ผู้ตรวจสอบ</h2>
+                <p>ผู้ตรวจสอบสามารถสมัครเป็นสมาชิกเพื่อตรวจสอบคุณภาพการผลิตของฟาร์มและได้รับผลตอบแทน.</p>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Join</a>
+            </div>
+            <!-- User Type 5 -->
+            <div class="carousel-item bg-white p-5 shadow-lg rounded-lg">
+                <h2 class="text-xl font-bold text-green-600">นักลงทุน</h2>
+                <p>นักลงทุนสามารถลงทุนในโครงการฟาร์มเพื่อช่วยเกษตรกรและสร้างรายได้ที่มั่นคง.</p>
+                <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Join</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Farmer Card Section -->
+    <section class="mt-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-green-600">เกษตรกรของเรา</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+            <!-- Farmer Card 1 -->
+            <div class="bg-white p-4 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150" alt="เกษตรกร 1" class="rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-bold text-green-700">เกษตรกร A</h3>
+                <p>พืชผักสวนครัว: มะเขือเทศ, ผักกาด</p>
+                <p class="text-yellow-500"><i class="fas fa-star"></i> 4.5 / 5 ดาว</p>
+                <p class="text-sm text-gray-600">คะแนน: 80</p>
+                <a href="#" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 mt-2 block text-center">รายละเอียดเพิ่มเติม</a>
+            </div>
+            <!-- Farmer Card 2 -->
+            <div class="bg-white p-4 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150" alt="เกษตรกร 2" class="rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-bold text-green-700">เกษตรกร B</h3>
+                <p>พืชผักสวนครัว: โหระพา, ผักชี</p>
+                <p class="text-yellow-500"><i class="fas fa-star"></i> 4.8 / 5 ดาว</p>
+                <p class="text-sm text-gray-600">คะแนน: 90</p>
+                <a href="#" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 mt-2 block text-center">รายละเอียดเพิ่มเติม</a>
+            </div>
+            <!-- Farmer Card 3 -->
+            <div class="bg-white p-4 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150" alt="เกษตรกร 3" class="rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-bold text-green-700">เกษตรกร C</h3>
+                <p>พืชผักสวนครัว: คะน้า, ถั่วฝักยาว</p>
+                <p class="text-yellow-500"><i class="fas fa-star"></i> 4.6 / 5 ดาว</p>
+                <p class="text-sm text-gray-600">คะแนน: 85</p>
+                <a href="#" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 mt-2 block text-center">รายละเอียดเพิ่มเติม</a>
+            </div>
+            <!-- Farmer Card 4 -->
+            <div class="bg-white p-4 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150" alt="เกษตรกร 4" class="rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-bold text-green-700">เกษตรกร D</h3>
+                <p>พืชผักสวนครัว: ต้นหอม, ผักกาดขาว</p>
+                <p class="text-yellow-500"><i class="fas fa-star"></i> 4.4 / 5 ดาว</p>
+                <p class="text-sm text-gray-600">คะแนน: 75</p>
+                <a href="#" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 mt-2 block text-center">รายละเอียดเพิ่มเติม</a>
+            </div>
+            <!-- Farmer Card 5 -->
+            <div class="bg-white p-4 shadow-md rounded-lg">
+                <img src="https://via.placeholder.com/150" alt="เกษตรกร 5" class="rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-bold text-green-700">เกษตรกร E</h3>
+                <p>พืชผักสวนครัว: ผักบุ้ง, กวางตุ้ง</p>
+                <p class="text-yellow-500"><i class="fas fa-star"></i> 4.7 / 5 ดาว</p>
+                <p class="text-sm text-gray-600">คะแนน: 88</p>
+                <a href="#" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 mt-2 block text-center">รายละเอียดเพิ่มเติม</a>
+            </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="p-5">
-        <h2 class="text-2xl text-green-600 font-bold text-center mb-5">เกษตรกรของเรา</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="card">
-                <i class="fas fa-leaf fa-3x text-green-500"></i>
-                <h3 class="text-xl text-green-600">เกษตรกร 1</h3>
-                <p>พื้นที่: 400 ตารางเมตร</p>
-                <p>เรทราคา: 3 เหรียญต่อวัน</p>
-                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-leaf fa-3x text-green-500"></i>
-                <h3 class="text-xl text-green-600">เกษตรกร 2</h3>
-                <p>พื้นที่: 400 ตารางเมตร</p>
-                <p>เรทราคา: 3 เหรียญต่อวัน</p>
-                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-leaf fa-3x text-green-500"></i>
-                <h3 class="text-xl text-green-600">เกษตรกร 3</h3>
-                <p>พื้นที่: 400 ตารางเมตร</p>
-                <p>เรทราคา: 3 เหรียญต่อวัน</p>
-                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-leaf fa-3x text-green-500"></i>
-                <h3 class="text-xl text-green-600">เกษตรกร 4</h3>
-                <p>พื้นที่: 400 ตารางเมตร</p>
-                <p>เรทราคา: 3 เหรียญต่อวัน</p>
-                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-leaf fa-3x text-green-500"></i>
-                <h3 class="text-xl text-green-600">เกษตรกร 5</h3>
-                <p>พื้นที่: 400 ตารางเมตร</p>
-                <p>เรทราคา: 3 เหรียญต่อวัน</p>
-                <a href="#" class="text-blue-600 hover:underline">อ่านเพิ่มเติม</a>
-            </div>
-        </div>
-    </main>
+    <script>
+        let currentIndex = 0;
 
-    <!-- Footer -->
-    <footer class="bg-green-600 text-white p-4 text-center">
-        &copy; 2024 Farm Link. All Rights Reserved.
-    </footer>
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-item');
+            const totalSlides = slides.length;
+
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            const offset = -currentIndex * 100;
+            document.getElementById('carouselInner').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
 </body>
 </html>
