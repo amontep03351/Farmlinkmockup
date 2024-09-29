@@ -6,21 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm Link</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        body {
+            background-color: #f9f9f9;
+        }
+
         .banner {
             background-image: url('banner-image.jpg'); /* เปลี่ยนเป็น URL รูปภาพ */
             background-size: cover;
             background-position: center;
             height: 400px;
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
         }
 
         .slide {
+            height: 300px;
             background-size: cover;
             background-position: center;
-            height: 300px;
             position: relative;
             border-radius: 15px;
             overflow: hidden;
+            margin-bottom: 20px;
         }
 
         .slide h2 {
@@ -44,74 +66,153 @@
             position: absolute;
             bottom: 20%;
             left: 10%;
-            background-color: green;
+            background-color: #38a169; /* สีเขียว */
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #38a169; /* สีเขียว */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .farmer-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
         }
     </style>
 </head>
 
-<body class="bg-gray-100">
-    <header class="bg-green-600 p-4 text-white text-center">
+<body>
+    <header class="bg-green-600 p-4 text-white text-center fixed w-full top-0 z-10">
         <h1 class="text-3xl font-bold">Farm Link</h1>
     </header>
 
-    <main class="p-4">
+    <main class="p-4 pt-20">
         <!-- Banner -->
-        <div class="banner flex items-center justify-center">
-            <h2 class="text-white text-4xl">Welcome to Farm Link</h2>
+        <div class="banner">
+            <div class="banner-overlay">
+                <h2 class="text-4xl font-bold">Welcome to Farm Link</h2>
+                <p class="mt-2">Connecting Farmers Directly to Customers</p>
+            </div>
         </div>
 
         <!-- Slide Section -->
-        <div class="my-4 space-y-4">
-            <div class="slide" style="background-image: url('slide1.jpg');">
-                <h2>Farmers</h2>
-                <p>Connect with customers directly for better pricing.</p>
-                <a href="#" class="join-btn">Join as Farmer</a>
+        <div class="my-4 carousel">
+            <button class="carousel-button left" onclick="moveSlide(-1)">❮</button>
+            <div class="carousel-inner">
+                <div class="carousel-item slide" style="background-image: url('slide1.jpg');">
+                    <h2>Farmers</h2>
+                    <p>Connect with customers directly for better pricing.</p>
+                    <a href="#" class="join-btn">Join as Farmer</a>
+                </div>
+                <div class="carousel-item slide" style="background-image: url('slide2.jpg');">
+                    <h2>Suppliers</h2>
+                    <p>Become a supplier for local restaurants and businesses.</p>
+                    <a href="#" class="join-btn">Join as Supplier</a>
+                </div>
+                <div class="carousel-item slide" style="background-image: url('slide3.jpg');">
+                    <h2>Restaurants</h2>
+                    <p>Get fresh produce directly from farms.</p>
+                    <a href="#" class="join-btn">Join as Restaurant</a>
+                </div>
             </div>
-            <div class="slide" style="background-image: url('slide2.jpg');">
-                <h2>Suppliers</h2>
-                <p>Become a supplier for local restaurants and businesses.</p>
-                <a href="#" class="join-btn">Join as Supplier</a>
-            </div>
-            <div class="slide" style="background-image: url('slide3.jpg');">
-                <h2>Restaurants</h2>
-                <p>Get fresh produce directly from farms.</p>
-                <a href="#" class="join-btn">Join as Restaurant</a>
-            </div>
+            <button class="carousel-button right" onclick="moveSlide(1)">❯</button>
         </div>
 
         <!-- Farmer Cards -->
+        <h2 class="text-2xl font-bold text-center my-4">Meet Our Farmers</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="bg-white shadow-md rounded-lg p-4">
+            <div class="farmer-card">
                 <img src="farmer1.jpg" alt="Farmer 1" class="rounded-full w-24 h-24 mx-auto">
-                <h3 class="text-xl font-bold text-center mt-2">Farmer Name 1</h3>
-                <p class="text-center">Crops: Lettuce, Tomato</p>
-                <p class="text-center">Area: 400 sqm</p>
-                <p class="text-center">Price: $3/day</p>
+                <h3 class="text-xl font-bold mt-2">Farmer Name 1</h3>
+                <p>Crops: Lettuce, Tomato</p>
+                <p>Area: 400 sqm</p>
+                <p>Price: $3/day</p>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
+            <div class="farmer-card">
                 <img src="farmer2.jpg" alt="Farmer 2" class="rounded-full w-24 h-24 mx-auto">
-                <h3 class="text-xl font-bold text-center mt-2">Farmer Name 2</h3>
-                <p class="text-center">Crops: Carrot, Spinach</p>
-                <p class="text-center">Area: 400 sqm</p>
-                <p class="text-center">Price: $3/day</p>
+                <h3 class="text-xl font-bold mt-2">Farmer Name 2</h3>
+                <p>Crops: Carrot, Spinach</p>
+                <p>Area: 400 sqm</p>
+                <p>Price: $3/day</p>
             </div>
-            <div class="bg-white shadow-md rounded-lg p-4">
+            <div class="farmer-card">
                 <img src="farmer3.jpg" alt="Farmer 3" class="rounded-full w-24 h-24 mx-auto">
-                <h3 class="text-xl font-bold text-center mt-2">Farmer Name 3</h3>
-                <p class="text-center">Crops: Basil, Chili</p>
-                <p class="text-center">Area: 400 sqm</p>
-                <p class="text-center">Price: $3/day</p>
+                <h3 class="text-xl font-bold mt-2">Farmer Name 3</h3>
+                <p>Crops: Basil, Chili</p>
+                <p>Area: 400 sqm</p>
+                <p>Price: $3/day</p>
             </div>
             <!-- เพิ่มข้อมูลของเกษตรกรคนอื่นๆ ที่นี่ -->
         </div>
     </main>
 
-    <footer class="bg-green-600 p-4 text-white text-center mt-4">
+    <footer>
         <p>&copy; 2024 Farm Link. All rights reserved.</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-item');
+            const totalSlides = slides.length;
+
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+
+            const offset = -currentIndex * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
 </body>
 
 </html>
